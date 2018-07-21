@@ -11,6 +11,7 @@
     <modules>
         <module>EurekaServer</module>
         <module>EurekaServer</module>
+        <module>EurekaClient</module>
     </modules>
 
     <parent>
@@ -29,4 +30,10 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+    </dependencies>
 </project>
