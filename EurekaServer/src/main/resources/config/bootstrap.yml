@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: server
+  profiles:
+    active: server
+
+#单机配置eureka
+eureka:
+  instance:
+    hostname: peer1         #eureka 注册的时候的服务名称
+    prefer-ip-address: true #eureka 注册的时候使用IP地址而不是localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#集群配置如下
+#spring:
+# profiles:
+#  active: peer1
+#eureka:
+#  instance:
+#    hostname: peer1
+#  client:
+#    service-url:
+#      defaultZone: http://peer1/eureka
+#
+#spring:
+# profiles:
+#  active: peer2
+#eureka:
+#  instance:
+#    hostname: peer2
+#  client:
+#    service-url:
+#      defaultZone: http://peer1/eureka
