@@ -1,21 +1,19 @@
 server:
-  port: 8080
+  port: 8081
 spring:
   application:
-    name: EurekaServer
+    name: EurekaCluster
   profiles:
     active: server
 
 #单机配置eureka
 eureka:
   instance:
-    hostname: localhost         #eureka ip地址，可以是域名
+    hostname: localhost         #eureka 注册的时候的服务名称
     prefer-ip-address: true #eureka 注册的时候使用IP地址而不是localhost
   client:
-    register-with-eureka: false
-    fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:8081/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 #集群配置如下
 #spring:
