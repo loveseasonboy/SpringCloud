@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8762
 spring:
   application:
     name: EurekaCluster
@@ -13,7 +13,7 @@ eureka:
     prefer-ip-address: true #eureka 注册的时候使用IP地址而不是localhost
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
 
 #集群配置如下
 #spring:
