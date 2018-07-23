@@ -1,0 +1,47 @@
+server:
+  port: 8761
+spring:
+  profiles:
+    active: server
+  security:
+    user:
+      name: root
+      password: root
+#单机配置eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+#集群配置如下
+#spring:
+# profiles:
+#  active: peer1
+#eureka:
+#  instance:
+#    hostname: peer1
+#  client:
+#    service-url:
+#      defaultZone: http://peer1/eureka
+#
+#spring:
+# profiles:
+#  active: peer2
+#eureka:
+#  instance:
+#    hostname: peer2
+#  client:
+#    service-url:
+#      defaultZone: http://peer1/eureka
+

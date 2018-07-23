@@ -1,38 +1,6 @@
-server:
-  port: 8761
 spring:
   application:
     name: EurekaCluster
-  profiles:
-    active: server
-
-#单机配置eureka
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    #registerWithEureka: false
-    #fetchRegistry: false
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
-#集群配置如下
-#spring:
-# profiles:
-#  active: peer1
-#eureka:
-#  instance:
-#    hostname: peer1
-#  client:
-#    service-url:
-#      defaultZone: http://peer1/eureka
-#
-#spring:
-# profiles:
-#  active: peer2
-#eureka:
-#  instance:
-#    hostname: peer2
-#  client:
-#    service-url:
-#      defaultZone: http://peer1/eureka
+  cloud:
+    config:
+      uri: http://localhost:8761
