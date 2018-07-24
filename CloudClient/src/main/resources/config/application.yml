@@ -13,3 +13,6 @@ eureka:
       it: other
 
 
+feign:
+  hystrix:
+    enabled: true
