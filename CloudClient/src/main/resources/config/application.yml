@@ -16,3 +16,26 @@ eureka:
 feign:
   hystrix:
     enabled: true
+
+stores:
+  ribbon:
+    listOfServers: www.baidu.com,www.jalja.org,www.163.com
+#禁用eureka的服务的serviceID 使用静态的IP地址
+ribbon:
+  eureka:
+   enabled: false
+
+#  eager-load:
+#    enabled: true
+#    clients:
+
+zuul:
+  routes:
+    users:
+      path: /myuser/**  #深度的获取路径
+      serviceId: www.baidu.com
+
+users:
+  ribbon:
+    listOfServers: www.baidu.com,www.jalja.org,www.163.com
+
