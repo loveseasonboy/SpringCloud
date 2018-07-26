@@ -39,3 +39,29 @@ users:
   ribbon:
     listOfServers: www.baidu.com,www.jalja.org,www.163.com
 
+
+ribbon:
+  ReadTimeout: 500 #请求处理的超时时间
+  ConnectTimeout: 500 #请求链接的超时时间
+  SocketTimeout: 500
+  OkToRetryOnAllOperations: true  #对所有请求都开启重试
+  MaxAutoRetries: 1 #对当前服务的重试次数，达到次月转去其他的服务
+  MaxAutoRetriesNextServer: 2 #切换服务的次数。
+  retryableStatusCodes: 404,500
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+spring:
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true #重试机制开启
+
+
+
+
+
