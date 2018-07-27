@@ -3,10 +3,13 @@ package com.hystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name = "feign", fallback = HystrixClientFallback.class)
+/**
+ * serviceID
+ */
+@FeignClient(value = "EUREKACLIENT", fallback = HystrixClientFallback.class)
 public interface SchedualService {
 
-    @GetMapping("/feign")
+    @GetMapping("/hello")
     String feignHystrix();
 
 

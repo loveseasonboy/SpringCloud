@@ -17,7 +17,7 @@ public class FeignController {
 
     @RequestMapping("/feign")
     public String feignHystrix() {
-        return schedualService.feignHystrix();//restTemplate.getForEntity("http://root:root@EurekaClient/hello", String.class).getBody();
+        return schedualService.feignHystrix();
     }
 
     @RequestMapping("/hello/h1")

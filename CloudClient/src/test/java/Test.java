@@ -30,5 +30,6 @@ public class Test {
             System.out.println("Status code for " + response.getRequestedURI() + "  : " + response.getStatus());
         }
         System.out.println(lb.getLoadBalancerStats()); // 7
+
     }
 }
